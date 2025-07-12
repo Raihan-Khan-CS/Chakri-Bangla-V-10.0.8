@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Raihan Khan, Chakri Bangla">
+    <meta name="description" content="চাকরি বাংলা সম্পর্কে সাধারণ প্রশ্নাবলীর উত্তর খুঁজুন। আমাদের সেবা এবং ওয়েবসাইট ব্যবহার সম্পর্কে জানুন।">
+    <title>প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী | চাকরি বাংলা</title>
+    <link rel="icon" href="images/Chakri-Bangla-LOGO.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/Chakri-Bangla-LOGO.jpg" alt="Chakri Bangla Logo" onerror="this.style.display='none'">
+            </a>
+            <nav>
+                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-page="home">হোম</a></li>
+                    <li class="nav-item"><a href="index.html?page=category&arg=news" class="nav-link" data-page="news">চাকরির খবর</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">চাকরির সার্কুলার <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="index.html?page=category&arg=govt" class="dropdown-link">সরকারি চাকরি</a>
+                            <a href="index.html?page=category&arg=private" class="dropdown-link">বেসরকারি চাকরি</a>
+                            <a href="index.html?page=category&arg=bank" class="dropdown-link">ব্যাংক জব</a>
+                            <a href="index.html?page=category&arg=ngo" class="dropdown-link">এনজিও</a>
+                        </div>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">পরীক্ষার প্রস্তুতি <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="index.html?page=page&arg=bcs" class="dropdown-link">বিসিএস প্রস্তুতি</a>
+                            <a href="index.html?page=page&arg=bank_exam" class="dropdown-link">ব্যাংক জব প্রস্তুতি</a>
+                            <a href="index.html?page=page&arg=career-advice" class="dropdown-link">ক্যারিয়ার পরামর্শ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link" data-page="about">আমাদের সম্পর্কে</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link" data-page="contact">যোগাযোগ</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="static-page">
+                <div class="contact-header">
+                    <h1>প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী (FAQ)</h1>
+                    <p>আমাদের সেবা এবং ওয়েবসাইট সম্পর্কে আপনার সাধারণ প্রশ্নগুলোর উত্তর এখানে খুঁজে নিন।</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>চাকরি বাংলা কি কোনো নিয়োগকারী সংস্থা?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>না, চাকরি বাংলা কোনো নিয়োগকারী সংস্থা নয়। আমরা একটি তথ্যমূলক প্ল্যাটফর্ম যা বিভিন্ন নির্ভরযোগ্য উৎস থেকে চাকরির খবর ও বিজ্ঞপ্তি সংগ্রহ করে প্রকাশ করে। আমরা কোনো নিয়োগ প্রক্রিয়ার সাথে সরাসরি জড়িত নই।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>এই ওয়েবসাইটে প্রকাশিত তথ্যের উৎস কী?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>আমরা বিভিন্ন জাতীয় দৈনিক পত্রিকা, অনলাইন নিউজ পোর্টাল এবং বিভিন্ন সরকারি ও বেসরকারি প্রতিষ্ঠানের অফিসিয়াল ওয়েবসাইট থেকে তথ্য সংগ্রহ করি। প্রতিটি বিজ্ঞপ্তির সাথে আমরা মূল উৎসের লিঙ্ক দেওয়ার চেষ্টা করি।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>চাকরির জন্য আবেদন করবো কীভাবে?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>প্রতিটি চাকরির বিজ্ঞপ্তিতে আবেদন করার প্রক্রিয়া উল্লেখ করা থাকে। সাধারণত, বিজ্ঞপ্তিতে দেওয়া নির্দেশনা অনুযায়ী নির্দিষ্ট ওয়েবসাইটের মাধ্যমে অনলাইনে অথবা ডাকযোগে আবেদন করতে হয়। চাকরি বাংলা সরাসরি কোনো আবেদন গ্রহণ করে না।</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>ওয়েবসাইটটি ব্যবহার করতে কি কোনো ফি দিতে হয়?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>না, আমাদের ওয়েবসাইট ব্যবহার এবং তথ্য দেখার জন্য কোনো প্রকার ফি বা চার্জ নেই। এটি সকল ব্যবহারকারীর জন্য সম্পূর্ণ বিনামূল্যে।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>আমি একটি চাকরির বিজ্ঞপ্তিতে ভুল তথ্য পেয়েছি, কী করবো?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>আমরা তথ্যের নির্ভুলতা নিশ্চিত করতে সর্বদা সচেষ্ট থাকি। তবে অনিচ্ছাকৃত ভুলের জন্য আমরা আন্তরিকভাবে ক্ষমাপ্রার্থী। আপনি যদি কোনো ভুল তথ্য খুঁজে পান, অনুগ্রহ করে আমাদের <a href="contact.html">যোগাযোগ</a> পৃষ্ঠার মাধ্যমে জানান। আমরা যত দ্রুত সম্ভব তা সংশোধন করবো।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>আমি কি আমার প্রতিষ্ঠানের চাকরির বিজ্ঞপ্তি এখানে প্রকাশ করতে পারি?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>হ্যাঁ, আপনি আপনার প্রতিষ্ঠানের চাকরির বিজ্ঞপ্তি আমাদের প্ল্যাটফর্মে প্রকাশ করতে পারেন। এর জন্য অনুগ্রহ করে আমাদের সাথে <a href="mailto:info@chakribangla.com">info@chakribangla.com</a> এই ই-মেইলে যোগাযোগ করুন।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-section">
+                    <h3>চাকরি বাংলা সম্পর্কে</h3>
+                    <p>বাংলাদেশে সর্বশেষ চাকরির খবর ও সার্কুলার পাওয়ার জন্য আপনার ওয়ান-স্টপ গন্তব্য। আমরা আপনার জন্য সবচেয়ে নির্ভরযোগ্য চাকরির আপডেট নিয়ে আসি।</p>
+                </div>
+                <div class="footer-section">
+                    <h3>গুরুত্বপূর্ণ লিঙ্ক</h3>
+                    <ul>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
+                        <li><a href="privacy-policy.html">গোপনীয়তা নীতি</a></li>
+                        <li><a href="terms-and-conditions.html">শর্তাবলী</a></li>
+                        <li><a href="disclaimer.html">অস্বীকৃতি</a></li>
+                        <li><a href="faq.html">জিজ্ঞাসিত প্রশ্নাবলী</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© ২০২৫ চাকরি বাংলা। সর্বস্বত্ব সংরক্ষিত।</p></div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // FAQ Accordion Script
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const currentlyActive = document.querySelector('.faq-item.active');
+                    if (currentlyActive && currentlyActive !== item) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Raihan Khan, Chakri Bangla">
+    <meta name="description" content="৪৭তম বিসিএস প্রিলিমিনারি পরীক্ষার সম্পূর্ণ সিলেবাস ও মানবণ্টন। চাকরি বাংলা'র সাথে নিন সেরা প্রস্তুতি।">
+    <title>বিসিএস পরীক্ষার প্রস্তুতি | চাকরি বাংলা</title>
+    <link rel="icon" href="images/Chakri-Bangla-LOGO.jpg" type="image/x-icon">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Page-specific Stylesheet -->
+    <link rel="stylesheet" href="css/bcs-exam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/Chakri-Bangla-LOGO.jpg" alt="Chakri Bangla Logo" onerror="this.style.display='none'">
+            </a>
+            <nav>
+                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-page="home">হোম</a></li>
+                    <li class="nav-item"><a href="index.html?page=category&arg=news" class="nav-link" data-page="news">চাকরির খবর</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">চাকরির সার্কুলার <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="index.html?page=category&arg=govt" class="dropdown-link">সরকারি চাকরি</a>
+                            <a href="index.html?page=category&arg=private" class="dropdown-link">বেসরকারি চাকরি</a>
+                            <a href="index.html?page=category&arg=bank" class="dropdown-link">ব্যাংক জব</a>
+                            <a href="index.html?page=category&arg=ngo" class="dropdown-link">এনজিও</a>
+                        </div>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" onclick="toggleDropdown(event)">পরীক্ষার প্রস্তুতি <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="bcs-exam.html" class="dropdown-link">বিসিএস প্রস্তুতি</a>
+                            <a href="#" class="dropdown-link">ব্যাংক জব প্রস্তুতি</a>
+                            <a href="#" class="dropdown-link">ক্যারিয়ার পরামর্শ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link" data-page="about">আমাদের সম্পর্কে</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link" data-page="contact">যোগাযোগ</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="bcs-prep-container">
+                <!-- Left Sidebar: Table of Contents -->
+                <aside class="bcs-sidebar">
+                    <h3>সিলেবাস সূচী</h3>
+                    <nav>
+                        <ul>
+                            <li><a href="#" class="toc-link active" data-target="introduction">ভূমিকা</a></li>
+                            <li><a href="#" class="toc-link" data-target="bangla">বাংলা ভাষা ও সাহিত্য</a></li>
+                            <li><a href="#" class="toc-link" data-target="english">English Language and Literature</a></li>
+                            <li><a href="#" class="toc-link" data-target="bangladesh">বাংলাদেশ বিষয়াবলি</a></li>
+                            <li><a href="#" class="toc-link" data-target="international">আন্তর্জাতিক বিষয়াবলি</a></li>
+                            <li><a href="#" class="toc-link" data-target="geography">ভূগোল, পরিবেশ ও দুর্যোগ ব্যবস্থাপনা</a></li>
+                            <li><a href="#" class="toc-link" data-target="science">সাধারণ বিজ্ঞান</a></li>
+                            <li><a href="#" class="toc-link" data-target="computer">কম্পিউটার ও তথ্যপ্রযুক্তি</a></li>
+                            <li><a href="#" class="toc-link" data-target="math">গাণিতিক যুক্তি</a></li>
+                            <li><a href="#" class="toc-link" data-target="mental-ability">মানসিক দক্ষতা</a></li>
+                            <li><a href="#" class="toc-link" data-target="ethics">নৈতিকতা, মূল্যবোধ ও সুশাসন</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Right Side: Content Display Area -->
+                <div class="bcs-content">
+                    <!-- Introduction Content -->
+                    <div id="introduction" class="content-section active">
+                        <h2>৪৭তম বিসিএস প্রিলিমিনারি পরীক্ষার প্রস্তুতি</h2>
+                        <p>বাংলাদেশে ৪৭তম বিসিএস প্রিলিমিনারি পরীক্ষায় বিভিন্ন বিষয় নিয়ে ২০০ নম্বরের একটি MCQ-ধরণের পরীক্ষা থাকবে। সিলেবাসে বাংলা, ইংরেজি, বাংলাদেশ বিষয়ক, আন্তর্জাতিক বিষয়ক, সাধারণ জ্ঞান (বিজ্ঞান, প্রযুক্তি, পরিবেশ ইত্যাদি), মানসিক ক্ষমতা এবং গাণিতিক যুক্তি অন্তর্ভুক্ত রয়েছে। পরীক্ষাটি ১৯ সেপ্টেম্বর অনুষ্ঠিত হবে বলে আশা করা হচ্ছে।</p>
+                        <h3>মানবণ্টন (Mark Distribution)</h3>
+                        <table class="marks-table">
+                            <thead>
+                                <tr>
+                                    <th>বিষয়</th>
+                                    <th>নম্বর</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>বাংলা ভাষা ও সাহিত্য</td><td>৩৫</td></tr>
+                                <tr><td>English Language and Literature</td><td>৩৫</td></tr>
+                                <tr><td>বাংলাদেশ বিষয়াবলি</td><td>৩০</td></tr>
+                                <tr><td>আন্তর্জাতিক বিষয়াবলি</td><td>২০</td></tr>
+                                <tr><td>ভূগোল, পরিবেশ ও দুর্যোগ ব্যবস্থাপনা</td><td>১০</td></tr>
+                                <tr><td>সাধারণ বিজ্ঞান</td><td>১৫</td></tr>
+                                <tr><td>কম্পিউটার ও তথ্যপ্রযুক্তি</td><td>১৫</td></tr>
+                                <tr><td>গাণিতিক যুক্তি</td><td>১৫</td></tr>
+                                <tr><td>মানসিক দক্ষতা</td><td>১৫</td></tr>
+                                <tr><td>নৈতিকতা, মূল্যবোধ ও সুশাসন</td><td>১০</td></tr>
+                                <tr><td><strong>মোট</strong></td><td><strong>২০০</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Bangla Content -->
+                    <div id="bangla" class="content-section">
+                        <h2>বাংলা ভাষা ও সাহিত্য (নম্বর: ৩৫)</h2>
+                        <p>এই অংশে দুটি প্রধান ভাগ রয়েছে: ভাষা (ব্যাকরণ) এবং সাহিত্য।</p>
+                        <h4>ক) ভাষা (১৫ নম্বর)</h4>
+                        <ul>
+                            <li>প্রয়োগ-অপপ্রয়োগ</li>
+                            <li>বানান ও বাক্য শুদ্ধি</li>
+                            <li>পরিভাষা</li>
+                            <li>সমার্থক ও বিপরীতার্থক শব্দ</li>
+                            <li>ধ্বনি, বর্ণ, শব্দ, পদ, বাক্য</li>
+                            <li>সন্ধি ও সমাস</li>
+                        </ul>
+                        <h4>খ) সাহিত্য (২০ নম্বর)</h4>
+                        <ul>
+                            <li>প্রাচীন ও মধ্যযুগ (৫ নম্বর)</li>
+                            <li>আধুনিক যুগ (১৮০০-বর্তমান) (১৫ নম্বর)</li>
+                        </ul>
+                    </div>
+
+                    <!-- English Content -->
+                    <div id="english" class="content-section">
+                        <h2>English Language and Literature (Marks: 35)</h2>
+                        <h4>Part I: Language (20 Marks)</h4>
+                        <ul>
+                            <li>Parts of Speech, Idioms & Phrases, Clauses, Corrections</li>
+                            <li>Sentences & Transformations, Words, Composition</li>
+                        </ul>
+                        <h4>Part II: Literature (15 Marks)</h4>
+                        <ul>
+                            <li>Names of writers of literary pieces from the Elizabethan period to the 21st Century.</li>
+                            <li>Quotations from drama/poetry of different ages.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Bangladesh Affairs Content -->
+                    <div id="bangladesh" class="content-section">
+                        <h2>বাংলাদেশ বিষয়াবলি (নম্বর: ৩০)</h2>
+                        <ul>
+                            <li>বাংলাদেশের জাতীয় ইতিহাস ও সংস্কৃতি</li>
+                            <li>কৃষি, জনসংখ্যা, অর্থনীতি ও শিল্প</li>
+                            <li>সংবিধান, রাজনৈতিক ব্যবস্থা ও সরকার ব্যবস্থা</li>
+                            <li>জাতীয় অর্জন, গুরুত্বপূর্ণ ব্যক্তিত্ব ও প্রতিষ্ঠান</li>
+                        </ul>
+                    </div>
+
+                    <!-- International Affairs Content -->
+                    <div id="international" class="content-section">
+                        <h2>আন্তর্জাতিক বিষয়াবলি (নম্বর: ২০)</h2>
+                        <ul>
+                            <li>বৈশ্বিক ইতিহাস ও ভূ-রাজনীতি</li>
+                            <li>আন্তর্জাতিক সম্পর্ক ও সংস্থা</li>
+                            <li>পরিবেশগত বিষয় এবং কূটনীতি</li>
+                            <li>সাম্প্রতিক ও চলমান ঘটনাবলি</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Geography Content -->
+                    <div id="geography" class="content-section">
+                        <h2>ভূগোল, পরিবেশ ও দুর্যোগ ব্যবস্থাপনা (নম্বর: ১০)</h2>
+                        <ul>
+                            <li>বাংলাদেশ ও বিশ্ব ভূগোল</li>
+                            <li>জলবায়ু পরিবর্তন ও প্রাকৃতিক দুর্যোগ</li>
+                            <li>দুর্যোগ ব্যবস্থাপনা ও টেকসই উন্নয়ন</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- General Science Content -->
+                    <div id="science" class="content-section">
+                        <h2>সাধারণ বিজ্ঞান (নম্বর: ১৫)</h2>
+                        <ul>
+                            <li>ভৌত বিজ্ঞান (পদার্থ, রসায়ন)</li>
+                            <li>জীব বিজ্ঞান (উদ্ভিদ, প্রাণী)</li>
+                            <li>আধুনিক বিজ্ঞান</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Computer Content -->
+                    <div id="computer" class="content-section">
+                        <h2>কম্পিউটার ও তথ্যপ্রযুক্তি (নম্বর: ১৫)</h2>
+                        <ul>
+                            <li>কম্পিউটারের অঙ্গসংগঠন</li>
+                            <li>ই-কমার্স ও সাইবার নিরাপত্তা</li>
+                            <li>ডেটাবেস সিস্টেম ও নেটওয়ার্কিং</li>
+                            <li>তথ্যপ্রযুক্তির বড় প্রতিষ্ঠান ও তাদের সেবা</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Math Content -->
+                    <div id="math" class="content-section">
+                         <h2>গাণিতিক যুক্তি (নম্বর: ১৫)</h2>
+                         <ul>
+                             <li>বাস্তব সংখ্যা, ল.সা.গু, গ.সা.গু</li>
+                             <li>শতকরা, লাভ-ক্ষতি, সুদকষা</li>
+                             <li>বীজগাণিতিক সূত্রাবলি ও সেট</li>
+                             <li>জ্যামিতি: রেখা, কোণ, ত্রিভুজ ও বৃত্ত</li>
+                         </ul>
+                    </div>
+
+                    <!-- Mental Ability Content -->
+                    <div id="mental-ability" class="content-section">
+                        <h2>মানসিক দক্ষতা (নম্বর: ১৫)</h2>
+                        <ul>
+                            <li>ভাষাগত যৌক্তিকতা (Verbal Reasoning)</li>
+                            <li>সমস্যা সমাধান (Problem Solving)</li>
+                            <li>বানান ও ভাষা (Spelling and Language)</li>
+                            <li>যান্ত্রিক দক্ষতা (Mechanical Reasoning)</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Ethics Content -->
+                    <div id="ethics" class="content-section">
+                        <h2>নৈতিকতা, মূল্যবোধ ও সুশাসন (নম্বর: ১০)</h2>
+                        <ul>
+                            <li>মূল্যবোধ শিক্ষা ও সুশাসন</li>
+                            <li>নৈতিকতা ও আইনের শাসন</li>
+                            <li>গণতন্ত্র ও মানবাধিকার</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom"><p>© ২০২৫ চাকরি বাংলা। সর্বস্বত্ব সংরক্ষিত।</p></div>
+        </div>
+    </footer>
+
+    <!-- Page-specific JavaScript -->
+    <script src="js/bcs-exam.js"></script>
+</body>
+</html>

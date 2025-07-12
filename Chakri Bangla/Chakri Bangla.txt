@@ -1,0 +1,78 @@
+I want to create a website name "Chakri Bangla - চাকরি বাংলা" which will be a basically JOB News portal for Bangladeshi. 
+
+
+They will publish on news in 5 Categories are below: 
+News : Will see all type of Job Relted News here Bangladesh.
+Government Job: Will see all Government Job Circular here in Bangladesh. 
+Bank Job : Will see all Bank Job Circular here Bangladesh. 
+NGO : Will see all NGO Job Circular here Bangladesh.
+Private Company : Will see all Private Company Job Circular here Bangladesh.
+
+
+
+
+
+Also they will create major job exam liks (BCS Exam, Bank Job Exam) preparation materials and provide guideline to job seeker that how to prepare for those job. 
+
+Also Need those pages: 
+About
+Contact
+Privacy Policy
+Terms and Conditions
+Disclaimer 
+FAQ
+
+About: 
+Welcome to Chakri Bangla
+Your one-stop destination for the latest job opportunities in Bangladesh.
+Whether you’re seeking government jobs or private sector roles, we bring you the most up-to-date and reliable job news from across the country.
+
+At Chakri Bangla, we understand the importance of timely information in shaping your career. Our platform is designed to make your job search easier by providing a comprehensive listing of available positions, along with detailed descriptions, application deadlines, and tips to help you succeed.
+
+Our mission is to empower job seekers in Bangladesh by connecting them with the best employment opportunities. We are committed to maintaining a transparent, user-friendly, and efficient platform that caters to your career aspirations.
+
+Join Chakri Bangla today and take the first step toward your dream job! 
+
+Chief Editor: Raihan Khan 
+
+Contact of Raihan Khan: 
+Email: raihankhancs@gmail.com 
+Phone: +88 01738 950 996
+Location: Green Road, Dhaka-1205, Bangladesh
+
+Social Information Raihan Khan: 
+Website: https://raihankhan.info/
+Facebook: https://facebook.com/RaihanKhanCS 
+Linkedin: https://www.linkedin.com/in/raihankhancs
+YouTube: https://www.youtube.com/@RaihanKhanCSE 
+Twitter: https://twitter.com/raihankhancs
+Instagram: https://www.instagram.com/raihankhancs/
+
+
+
+
+Social Media of Chakri Bangla: 
+Facebook: https://www.facebook.com/ChakriBanglaBD
+LinkedIn: https://www.linkedin.com/company/104394814
+Twitter: https://x.com/abcltech/ChakriBangla
+Instagram: https://www.instagram.com/ChakriBangla
+YouTube: https://www.youtube.com/@ChakriBangla
+
+Contact: 
+Address: Dhaka, Bangladesh 
+Mobile: +88 01738 950 996 
+Email: info@chakribangla.com 
+
+
+© Copyright 2025 by Chakri Bangla 
+
+Note: 
+1. Design should be Newspaper or News Portal Style, where in the homepage the latest job post will shown, the all other job post will shown in different categories. 
+2. Design Must be responsive, dynamic, user-friendly, robust and modern. 
+3. Color Black, white, deep green and deep red 
+4. Language Bengali and English. For Bengali use Google font  "Hind Siliguri" font family and for english use "Roboto" font family. 
+5. Programming Language: HTML, CSS and JavaScript 
+6. Use meta in every pages for social sharing in all social media platform. 
+
+Please provide me the complete code here. 
+

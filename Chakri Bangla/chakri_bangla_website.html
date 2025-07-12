@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <!--
+      Chakri Bangla - চাকরি বাংলা | Job News Portal Bangladesh
+      Revised Version: 4.0 (Live Data Integration)
+      Date: 26 June 2025
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Raihan Khan, Chakri Bangla">
+    <meta name="description" content="Chakri Bangla (চাকরি বাংলা) is the leading job news portal in Bangladesh, providing the latest job news and circulars for government, bank, private, and NGO sectors.">
+    <meta name="keywords" content="job news, chakrir khobor, job circular, bd jobs, সরকারি চাকরি, ব্যাংক জব, চাকরির সার্কুলার, চাকরির খবর">
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Chakri Bangla - চাকরি বাংলা | Job News & Circulars">
+    <meta property="og:description" content="Find the latest job news and circulars in Bangladesh. Your source for government, private, and bank job updates.">
+    <meta property="og:image" content="Chakri-Bangla-LOGO.jpg">
+    <meta property="og:url" content="https://www.chakribangla.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chakri Bangla - চাকরি বাংলা | Job News & Circulars">
+    <meta name="twitter:description" content="Find the latest job news and circulars in Bangladesh. Your source for government, private, and bank job updates.">
+    <meta name="twitter:image" content="Chakri-Bangla-LOGO.jpg">
+
+    <title>Chakri Bangla - চাকরি বাংলা | Job News & Circulars in Bangladesh</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-black: #212529;
+            --primary-white: #ffffff;
+            --deep-green: #0d5d2e;
+            --deep-red: #8b0000;
+            --light-gray: #f8f9fa;
+            --border-gray: #e9ecef;
+            --text-gray: #6c757d;
+            --font-bn: 'Hind Siliguri', sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-bn); line-height: 1.7; color: var(--primary-black); background: var(--light-gray); overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: inherit; }
+        
+        .header { background: var(--primary-white); box-shadow: 0 2px 10px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo img { height: 50px; width: auto; }
+
+        .nav-menu { list-style: none; display: flex; align-items: center; gap: 5px; }
+        .nav-item { position: relative; }
+        .nav-link { display: block; padding: 10px 15px; color: var(--primary-black); font-weight: 600; font-size: 16px; transition: color 0.3s, background-color 0.3s; cursor: pointer; border-radius: 5px; }
+        .nav-link.active, .nav-link:hover { background-color: var(--deep-green); color: var(--primary-white); }
+        .dropdown { position: absolute; top: 110%; left: 0; background: var(--primary-white); min-width: 230px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border-radius: 5px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1001; border: 1px solid var(--border-gray); }
+        .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-link { display: block; padding: 12px 20px; color: var(--primary-black); border-bottom: 1px solid var(--border-gray); transition: all 0.3s; }
+        .dropdown-link:last-child { border-bottom: none; }
+        .dropdown-link:hover { background: var(--light-gray); color: var(--deep-green); padding-left: 25px; }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--primary-black); font-size: 1.8rem; cursor: pointer; }
+        
+        main { padding: 30px 0; }
+        .home-section { background: var(--primary-white); padding: 30px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--deep-green); padding-bottom: 15px; margin-bottom: 25px; }
+        .section-header h2 { font-size: 1.8rem; color: var(--deep-green); display: flex; align-items: center; gap: 10px; }
+        .btn-view-all { background-color: var(--deep-green); color: var(--primary-white); padding: 8px 20px; border-radius: 20px; font-weight: 500; transition: background-color 0.3s; font-size: 15px; }
+        .btn-view-all:hover { background-color: var(--deep-red); }
+        .item-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        
+        .item-card { border: 1px solid var(--border-gray); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; transition: all 0.3s ease; }
+        .item-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-color: var(--deep-green); }
+        .item-card-title { font-size: 1.1rem; font-weight: 600; color: var(--primary-black); margin-bottom: 10px; }
+        .item-card-title:hover { color: var(--deep-red); }
+        .item-card-meta { display: flex; gap: 15px; font-size: 0.9rem; color: var(--text-gray); margin-top: auto; padding-top: 10px; border-top: 1px dashed var(--border-gray); }
+        .item-card-meta span { display: flex; align-items: center; gap: 5px; }
+        
+        .prep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .prep-card { background: var(--primary-white); border: 1px solid var(--border-gray); border-radius: 10px; padding: 30px 20px; text-align: center; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .prep-card:hover { border-color: var(--deep-green); transform: translateY(-8px); box-shadow: 0 12px 25px rgba(13, 93, 46, 0.15); }
+        .prep-card .icon { font-size: 3rem; margin-bottom: 15px; color: var(--deep-green); }
+        .prep-card h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 10px; }
+        .prep-card p { color: var(--text-gray); }
+        
+        .full-item-list { padding: 10px 20px; }
+        .full-list-item { display: flex; gap: 15px; border-bottom: 1px solid var(--border-gray); padding: 20px 0; }
+        .full-list-item:last-child { border-bottom: none; }
+        .full-list-item .icon { width: 60px; height: 60px; flex-shrink: 0; border-radius: 8px; background-color: var(--light-gray); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--deep-green); }
+        .item-details .item-title { font-size: 1.2rem; font-weight: 600; color: var(--deep-green); margin-bottom: 8px; display: inline-block; transition: color 0.3s; }
+        .item-details .item-title:hover { color: var(--deep-red); }
+        .item-meta { display: flex; flex-wrap: wrap; gap: 15px; color: var(--text-gray); font-size: 0.85rem; margin-bottom: 10px; }
+        .item-meta span { display: flex; align-items: center; gap: 5px; }
+
+        .static-page { background: var(--primary-white); padding: 40px; border-radius: 10px; }
+        .static-page h1, .static-page h2 { color: var(--deep-green); margin-bottom: 20px; }
+        .static-page h1 { border-bottom: 2px solid var(--deep-red); padding-bottom: 10px; }
+        .static-page p, .static-page ul { margin-bottom: 20px; line-height: 1.8; color: var(--text-gray); }
+        .static-page ul { list-style-position: inside; padding-left: 10px; }
+        
+        .footer { background: var(--primary-black); color: #ccc; padding: 50px 0 20px; border-top: 5px solid var(--deep-green); }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h3 { color: var(--primary-white); margin-bottom: 25px; font-size: 1.4rem; border-bottom: 2px solid var(--deep-green); padding-bottom: 10px; display: inline-block; }
+        .footer-section p { line-height: 1.8; margin-bottom: 20px; }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 12px; }
+        .footer-section a { color: #ccc; transition: color 0.3s, padding-left 0.3s; }
+        .footer-section a:hover { color: var(--deep-green); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; color: var(--text-gray); }
+
+        @media (max-width: 992px) {
+            .header-container { position: relative; }
+            .nav-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-white); flex-direction: column; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-top: 1px solid var(--border-gray); padding: 10px; gap: 5px; }
+            .nav-menu.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .dropdown { position: static; width: 100%; box-shadow: none; border: none; opacity: 1; visibility: visible; transform: none; display: none; background-color: #f8f9fa; padding-left: 15px; }
+            .nav-item.active .dropdown { display: block; }
+            .dropdown-link { color: var(--primary-black); }
+            .item-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .static-page { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo" onclick="handleNavClick(event, 'home')">
+                <img src="Chakri-Bangla-LOGO.jpg" alt="Chakri Bangla Logo" onerror="this.style.display='none'">
+            </a>
+            <nav>
+                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="#" class="nav-link" data-page="home" onclick="handleNavClick(event, 'home')">হোম</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-page="news" onclick="handleNavClick(event, 'category', 'news')">চাকরির খবর</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(this)">চাকরির সার্কুলার <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'category', 'govt')">সরকারি চাকরি</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'category', 'bank')">ব্যাংক জব</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'category', 'private')">বেসরকারি কোম্পানি</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'category', 'ngo')">এনজিও</a>
+                        </div>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(this)">পরীক্ষার প্রস্তুতি <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'page', 'bcs')">বিসিএস প্রস্তুতি</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'page', 'bank_exam')">ব্যাংক জব প্রস্তুতি</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-page="about" onclick="handleNavClick(event, 'page', 'about')">আমাদের সম্পর্কে</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main id="page-content"></main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>চাকরি বাংলা সম্পর্কে</h3>
+                    <p>বাংলাদেশে সর্বশেষ চাকরির খবর ও সার্কুলার পাওয়ার জন্য আপনার ওয়ান-স্টপ গন্তব্য। আমরা আপনার জন্য সবচেয়ে নির্ভরযোগ্য চাকরির আপডেট নিয়ে আসি।</p>
+                </div>
+                <div class="footer-section">
+                    <h3>চাকরির সার্কুলার</h3>
+                    <ul>
+                        <li><a href="#" onclick="handleNavClick(event, 'category', 'govt')">সরকারি চাকরি</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'category', 'bank')">ব্যাংক জব</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'category', 'private')">বেসরকারি কোম্পানি</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'category', 'ngo')">এনজিও</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>গুরুত্বপূর্ণ লিঙ্ক</h3>
+                    <ul>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'about')">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'contact')">যোগাযোগ</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'faq')">জিজ্ঞাসা</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; ২০২৫ চাকরি বাংলা। সর্বস্বত্ব সংরক্ষিত।</p></div>
+        </div>
+    </footer>
+
+    <script>
+        const state = { currentPage: 'home', currentPageArg: null };
+
+        const db = {
+            items: [
+                // === Live Job News Data ===
+                { id: 101, type: 'news', title_bn: '৪৫তম বিসিএসের মৌখিক পরীক্ষার সময়সূচি প্রকাশ', publish_date: 'জুন ২৫, ২০২৫' },
+                { id: 102, type: 'news', title_bn: '৪৪তম বিসিএসে কোটার সপক্ষে সনদ জমার নির্দেশ পিএসসির', publish_date: 'জুন ২৩, ২০২৫' },
+                { id: 103, type: 'news', title_bn: 'এক লাখ শিক্ষক নিয়োগে বিজ্ঞপ্তি, আবেদন শুরু', publish_date: 'জুন ২২, ২০২৫' },
+                { id: 104, type: 'news', title_bn: 'জাতীয় বিশ্ববিদ্যালয়ের ২০ শিক্ষক-কর্মকর্তাকে বাধ্যতামূলক অবসর', publish_date: 'জুন ২২, ২০২৫' },
+                { id: 105, type: 'news', title_bn: 'মাউশির ৪ পদের চূড়ান্ত ফলের দাবিতে অবস্থান কর্মসূচি', publish_date: 'জুন ১৭, ২০২৫' },
+                { id: 106, type: 'news', title_bn: 'অর্থনৈতিক সম্পর্ক বিভাগে ৭৪ পদে চাকরির পরীক্ষার তারিখ ঘোষণা', publish_date: 'জুন ১১, ২০২৫'},
+
+                // === Live Job Circular Data ===
+                { id: 1, type: 'circular', category: 'govt', company_bn: 'বাংলাদেশ গম ও ভুট্টা গবেষণা ইনস্টিটিউট', title_bn: '৫৯টি পদে নতুন নিয়োগ বিজ্ঞপ্তি', deadline_bn: 'জুলাই ১৫, ২০২৫' },
+                { id: 2, type: 'circular', category: 'govt', company_bn: 'বিমান বাংলাদেশ এয়ারলাইন্স', title_bn: 'বিভিন্ন পদে নিয়োগ বিজ্ঞপ্তি', deadline_bn: 'জুলাই ১০, ২০২৫' },
+                { id: 3, type: 'circular', category: 'bank', company_bn: 'পূবালী ব্যাংক পিএলসি', title_bn: 'ডেপুটি জুনিয়র অফিসার (ক্যাশ) পদে ভাইভা', deadline_bn: 'জুন ৩০, ২০২৫' },
+                { id: 4, type: 'circular', category: 'bank', company_bn: 'ব্র্যাক ব্যাংক', title_bn: '১৫০টি পদে রিলেশনশিপ অফিসার নিয়োগ', deadline_bn: 'জুলাই ০৫, ২০২৫' },
+                { id: 5, type: 'circular', category: 'private', company_bn: 'ওয়ালটন গ্রুপ', title_bn: 'সেলস এক্সিকিউটিভ পদে নিয়োগ', deadline_bn: 'জুলাই ২০, ২০২৫' },
+                { id: 6, type: 'circular', category: 'private', company_bn: 'নাভানা ফার্মাসিউটিক্যালস', title_bn: 'মেডিকেল প্রমোশন অফিসার পদে নিয়োগ', deadline_bn: 'জুলাই ১৮, ২০২৫' },
+                { id: 7, type: 'circular', category: 'ngo', company_bn: 'CARE বাংলাদেশ', title_bn: 'Specialist – Climate Resilience পদে নিয়োগ', deadline_bn: 'জুন ২৮, ২০২৫' },
+                { id: 8, type: 'circular', category: 'ngo', company_bn: 'ব্র্যাক এনজিও', title_bn: 'ক্রেডিট অফিসার, প্রগতি পদে নিয়োগ', deadline_bn: 'জুলাই ০২, ২০২৫' },
+                { id: 9, type: 'circular', category: 'bank', company_bn: 'Standard Chartered Bank', title_bn: 'Officer, Liability Operations পদে চাকরি', deadline_bn: 'জুলাই ০৭, ২০২৫' },
+                { id: 10, type: 'circular', category: 'govt', company_bn: 'বাংলাদেশ প্রেস কাউন্সিল', title_bn: 'বিভিন্ন পদে সরকারি চাকরি', deadline_bn: 'জুলাই ২৫, ২০২৫' },
+            ],
+            categories: {
+                news: { bn: 'চাকরির খবর', icon: '📰' },
+                govt: { bn: 'সরকারি চাকরির সার্কুলার', icon: '🏛️' },
+                bank: { bn: 'ব্যাংক চাকরির সার্কুলার', icon: '🏦' },
+                private: { bn: 'বেসরকারি চাকরির সার্কুলার', icon: '🏢' },
+                ngo: { bn: 'এনজিও চাকরির সার্কুলার', icon: '🤝' },
+            },
+        };
+
+        const templates = {
+            itemCard: (item) => `
+                <a href="#" class="item-card" onclick="handleNavClick(event, 'item', ${item.id})">
+                    <h3 class="item-card-title">${item.title_bn}</h3>
+                    <div class="item-card-meta">
+                        ${item.type === 'circular'
+                            ? `<span><i class="fas fa-building"></i> ${item.company_bn}</span><span><i class="fas fa-calendar-times"></i> ${item.deadline_bn}</span>`
+                            : `<span><i class="fas fa-calendar-alt"></i> ${item.publish_date}</span>`
+                        }
+                    </div>
+                </a>`,
+            fullListItem: (item) => `
+                <article class="full-list-item">
+                    <div class="icon">${db.categories[item.category || 'news'].icon}</div>
+                    <div class="item-details">
+                         <a href="#" class="item-title">${item.title_bn}</a>
+                         <div class="item-meta">
+                            ${item.type === 'circular'
+                                ? `<span><i class="fas fa-building"></i> ${item.company_bn}</span><span><i class="fas fa-calendar-times"></i> ${item.deadline_bn}</span>`
+                                : `<span><i class="fas fa-calendar-alt"></i> ${item.publish_date}</span>`
+                            }
+                        </div>
+                    </div>
+                </article>`,
+            homeSection: (key) => {
+                const category = db.categories[key];
+                const itemsToShow = (key === 'news')
+                    ? db.items.filter(i => i.type === 'news').slice(0, 6)
+                    : db.items.filter(i => i.type === 'circular' && i.category === key).slice(0, 6);
+                if (itemsToShow.length === 0) return '';
+                const itemGridHtml = itemsToShow.map(item => templates.itemCard(item)).join('');
+                return `
+                <section class="home-section">
+                    <div class="section-header">
+                        <h2>${category.icon} ${category.bn}</h2>
+                        <a href="#" class="btn-view-all" onclick="handleNavClick(event, 'category', '${key}')">সব দেখুন</a>
+                    </div>
+                    <div class="item-grid">${itemGridHtml}</div>
+                </section>`;
+            }
+        };
+
+        const pages = {
+            home: () => {
+                const circularCategories = ['govt', 'bank', 'private', 'ngo'];
+                const newsSectionHtml = templates.homeSection('news');
+                const circularSectionsHtml = circularCategories.map(key => templates.homeSection(key)).join('');
+                const prepSectionHtml = `
+                    <section class="home-section">
+                        <div class="section-header"><h2><i class="fas fa-book-reader"></i> পরীক্ষার প্রস্তুতি</h2></div>
+                        <div class="prep-grid">
+                             <a href="#" class="prep-card" onclick="handleNavClick(event, 'page', 'bcs')"><div class="icon">🏛️</div><h3>বিসিএস প্রস্তুতি</h3><p>গাইডলাইন ও টিপস</p></a>
+                             <a href="#" class="prep-card" onclick="handleNavClick(event, 'page', 'bank_exam')"><div class="icon">🏦</div><h3>ব্যাংক জব প্রস্তুতি</h3><p>গাইডলাইন ও টিপস</p></a>
+                        </div>
+                    </section>`;
+                return `<div class="container">${newsSectionHtml}${circularSectionsHtml}${prepSectionHtml}</div>`;
+            },
+            category: (categoryKey) => {
+                const category = db.categories[categoryKey];
+                const itemsToList = (categoryKey === 'news')
+                    ? db.items.filter(i => i.type === 'news')
+                    : db.items.filter(i => i.type === 'circular' && i.category === categoryKey);
+                const itemListHtml = itemsToList.length > 0
+                    ? itemsToList.map(item => templates.fullListItem(item)).join('')
+                    : `<p style="padding: 20px;">এই বিভাগে কোনো তথ্য পাওয়া যায়নি।</p>`;
+                return `
+                    <div class="container">
+                       <div class="home-section">
+                            <div class="section-header"><h2>${category.icon} ${category.bn}</h2></div>
+                            <div class="full-item-list">${itemListHtml}</div>
+                        </div>
+                    </div>`;
+            },
+            item: (itemId) => {
+                 const item = db.items.find(i => i.id === itemId);
+                 if (!item) return pages.page.notFound();
+                 let detailsHtml = ``;
+                 if(item.type === 'circular') {
+                    detailsHtml = `<p><strong>প্রতিষ্ঠান:</strong> ${item.company_bn}</p><p><strong>আবেদনের শেষ তারিখ:</strong> ${item.deadline_bn}</p>`;
+                 } else {
+                    detailsHtml = `<p><strong>প্রকাশের তারিখ:</strong> ${item.publish_date}</p>`;
+                 }
+                 return `
+                    <div class="container">
+                        <div class="static-page">
+                           <h1>${item.title_bn}</h1>
+                           ${detailsHtml}
+                           <p style="margin-top: 30px;"><em>(এখানে বিস্তারিত তথ্য, অফিসিয়াল বিজ্ঞপ্তি এবং আবেদন করার লিঙ্ক যুক্ত করা হবে।)</em></p>
+                        </div>
+                    </div>`;
+            },
+            page: {
+                about: () => `<div class="container"><div class="static-page"><h1>আমাদের সম্পর্কে</h1><p>চাকরি বাংলায় স্বাগতম! আমরা বাংলাদেশের চাকরিপ্রার্থীদের জন্য সবচেয়ে নির্ভরযোগ্য এবং আপ-টু-ডেট চাকরির খবর এবং সার্কুলার সরবরাহ করতে প্রতিশ্রুতিবদ্ধ। আমাদের লক্ষ্য হল চাকরি খোঁজার প্রক্রিয়াটিকে সহজ এবং কার্যকরী করে তোলা।</p></div></div>`,
+                contact: () => `<div class="container"><div class="static-page"><h1>যোগাযোগ</h1><p>যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন।<br><strong>ইমেইল:</strong> info@chakribangla.com</p></div></div>`,
+                faq: () => `<div class="container"><div class="static-page"><h1>সাধারণ জিজ্ঞাসা</h1><p>শীঘ্রই আসছে...</p></div></div>`,
+                bcs: () => pages.category('govt'),
+                bank_exam: () => pages.category('bank'),
+                notFound: () => `<div class="container"><div class="static-page"><h1>404 - পেজটি খুঁজে পাওয়া যায়নি</h1></div></div>`,
+            },
+        };
+
+        function renderPage(pageKey, pageArg = null) {
+            const contentDiv = document.getElementById('page-content');
+            let contentHtml = '';
+            if (pages[pageKey]) {
+                contentHtml = typeof pages[pageKey] === 'function' ? pages[pageKey](pageArg) : pages.page[pageKey](pageArg);
+            } else {
+                contentHtml = pages.page.notFound();
+            }
+            contentDiv.innerHTML = contentHtml;
+            window.scrollTo(0, 0);
+            updateNavActiveState(pageKey);
+        }
+
+        function handleNavClick(event, pageKey, pageArg = null) {
+            event.preventDefault();
+            state.currentPage = pageKey;
+            state.currentPageArg = pageArg;
+            renderPage(pageKey, pageArg);
+            const navMenu = document.getElementById('navMenu');
+            if (navMenu.classList.contains('active')) navMenu.classList.remove('active');
+        }
+        
+        function updateNavActiveState(pageKey) {
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            let activeLink;
+            if (pageKey === 'home') activeLink = document.querySelector('.nav-link[data-page="home"]');
+            if (pageKey === 'category' && state.currentPageArg === 'news') activeLink = document.querySelector('.nav-link[data-page="news"]');
+            if (activeLink) activeLink.classList.add('active');
+        }
+
+        function toggleMobileMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+
+        function toggleDropdown(element) {
+            if (window.innerWidth <= 992) {
+                const parentItem = element.parentElement;
+                parentItem.classList.toggle('active');
+                const dropdown = parentItem.querySelector('.dropdown');
+                if (dropdown) dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPage('home');
+            document.getElementById('mobile-toggle').addEventListener('click', toggleMobileMenu);
+        });
+    </script>
+
+</body>
+</html>

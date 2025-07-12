@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Raihan Khan, Chakri Bangla">
+    <meta name="description" content="চাকরি বাংলা এর সাথে যোগাযোগ করুন। আপনার যেকোনো প্রশ্ন বা মতামতের জন্য আমরা সর্বদা প্রস্তুত।">
+    <title>যোগাযোগ | চাকরি বাংলা</title>
+    <link rel="icon" href="images/Chakri-Bangla-LOGO.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/Chakri-Bangla-LOGO.jpg" alt="Chakri Bangla Logo" onerror="this.style.display='none'">
+            </a>
+            <nav>
+                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-page="home">হোম</a></li>
+                    <li class="nav-item"><a href="index.html?page=category&arg=news" class="nav-link" data-page="news">চাকরির খবর</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">চাকরির সার্কুলার <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="index.html?page=category&arg=govt" class="dropdown-link">সরকারি চাকরি</a>
+                            <a href="index.html?page=category&arg=private" class="dropdown-link">বেসরকারি চাকরি</a>
+                            <a href="index.html?page=category&arg=bank" class="dropdown-link">ব্যাংক জব</a>
+                            <a href="index.html?page=category&arg=ngo" class="dropdown-link">এনজিও</a>
+                        </div>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">পরীক্ষার প্রস্তুতি <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="index.html?page=page&arg=bcs" class="dropdown-link">বিসিএস প্রস্তুতি</a>
+                            <a href="index.html?page=page&arg=bank_exam" class="dropdown-link">ব্যাংক জব প্রস্তুতি</a>
+                            <a href="index.html?page=page&arg=career-advice" class="dropdown-link">ক্যারিয়ার পরামর্শ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link" data-page="about">আমাদের সম্পর্কে</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active" data-page="contact">যোগাযোগ</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="static-page">
+                <div class="contact-header">
+                    <h1>যোগাযোগ করুন</h1>
+                    <p>আপনার যেকোনো প্রশ্ন, মতামত বা পরামর্শের জন্য আমাদের সাথে যোগাযোগ করতে পারেন। আমরা আপনার বার্তা পেয়ে আনন্দিত হব।</p>
+                </div>
+
+                <!-- Redesigned Single Box Container -->
+                <div class="contact-container">
+                    <div class="contact-details-wrapper">
+                        <h3>যোগাযোগের তথ্য</h3>
+                        <ul class="contact-list">
+                            <li><i class="fas fa-map-marker-alt"></i><div><strong>ঠিকানা:</strong><br>ঢাকা, বাংলাদেশ</div></li>
+                            <li><i class="fas fa-envelope"></i><div><strong>ই-মেইল:</strong><br><a href="mailto:info@chakribangla.com">info@chakribangla.com</a></div></li>
+                            <li><i class="fas fa-phone"></i><div><strong>মোবাইল:</strong><br><a href="tel:+8801738950996">+88 01738 950 996</a></div></li>
+                        </ul>
+                        <div class="contact-socials-wrapper">
+                            <h4>সোশ্যাল মিডিয়াতে আমরা</h4>
+                             <div class="contact-socials">
+                                 <a href="https://www.facebook.com/ChakriBanglaBD" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                 <a href="https://www.linkedin.com/company/104394814" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                 <a href="https://x.com/abcltech/ChakriBangla" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                 <a href="https://www.instagram.com/ChakriBangla" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                 <a href="https://www.youtube.com/@ChakriBangla" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="contact-divider">
+
+                    <div class="contact-form-wrapper">
+                        <h3>আপনার বার্তা পাঠান</h3>
+                        <form id="contact-form" onsubmit="event.preventDefault(); alert('বার্তা পাঠানোর জন্য ধন্যবাদ!');">
+                            <div class="form-group"><label for="name">আপনার নাম</label><input type="text" id="name" name="name" required></div>
+                            <div class="form-group"><label for="email">আপনার ই-মেইল</label><input type="email" id="email" name="email" required></div>
+                            <div class="form-group"><label for="subject">বিষয়</label><input type="text" id="subject" name="subject" required></div>
+                            <div class="form-group"><label for="message">আপনার বার্তা</label><textarea id="message" name="message" rows="5" required></textarea></div>
+                            <button type="submit" class="btn-submit">বার্তা পাঠান</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom"><p>© ২০২৫ চাকরি বাংলা। সর্বস্বত্ব সংরক্ষিত।</p></div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

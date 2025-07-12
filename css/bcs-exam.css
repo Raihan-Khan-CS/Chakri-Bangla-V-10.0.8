@@ -1,0 +1,230 @@
+/* =================================== */
+/* BCS Exam Page Specific Styles
+/* =================================== */
+
+.bcs-prep-container {
+    display: grid;
+    grid-template-columns: 20fr 80fr; /* 20:80 ratio */
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Left Sidebar Styles */
+.bcs-sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 100px; /* Adjust based on header height */
+}
+
+.bcs-sidebar h3 {
+    font-size: 1.4rem;
+    color: var(--deep-green);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--deep-green);
+}
+
+.bcs-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bcs-sidebar li a {
+    display: block;
+    padding: 12px 15px;
+    color: #333;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.bcs-sidebar li a:hover {
+    background-color: var(--light-gray);
+    color: var(--deep-green);
+    border-left: 3px solid var(--deep-red);
+}
+
+.bcs-sidebar li a.active {
+    background-color: var(--deep-green);
+    color: #fff;
+    border-left: 3px solid var(--deep-red);
+}
+
+/* Right Content Area Styles */
+.bcs-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.content-section {
+    display: none; /* Hide all content sections by default */
+}
+
+.content-section.active {
+    display: block; /* Show only the active one */
+}
+
+.bcs-content h2 {
+    font-size: 1.8rem;
+    color: var(--deep-red);
+    margin-bottom: 20px;
+}
+
+.bcs-content h3 {
+    font-size: 1.5rem;
+    color: var(--deep-green);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.bcs-content h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.bcs-content p {
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin-bottom: 15px;
+}
+
+.bcs-content ul {
+    list-style-type: disc;
+    padding-left: 25px;
+}
+
+.bcs-content ul li {
+    margin-bottom: 8px;
+    color: var(--text-gray);
+}
+
+.marks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.marks-table th, .marks-table td {
+    border: 1px solid var(--border-gray);
+    padding: 12px;
+    text-align: left;
+}
+
+.marks-table thead {
+    background-color: var(--deep-green);
+    color: #fff;
+}
+
+.marks-table tbody tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+.marks-table strong {
+    color: var(--deep-red);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .bcs-prep-container {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+    .bcs-sidebar {
+        position: static; /* Remove sticky positioning */
+        margin-bottom: 30px;
+    }
+}
+
+
+/* =================================== */
+/* BCS Subject Page Specific Styles
+/* =================================== */
+
+.bcs-subject-page {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.subject-header {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--deep-green);
+}
+
+.subject-header h1 {
+    font-size: 2.2rem;
+    color: var(--deep-red);
+}
+
+.subject-header p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-top: 10px;
+}
+
+.syllabus-section {
+    margin-bottom: 40px;
+}
+
+.syllabus-section h3 {
+    font-size: 1.6rem;
+    color: var(--deep-green);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.syllabus-section h4 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.syllabus-section p {
+    line-height: 1.8;
+    color: var(--text-gray);
+}
+
+.topic-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.topic-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-weight: 500;
+}
+
+.topic-list li i {
+    color: var(--deep-green);
+}
+
+/* Add this to the end of your bcs-exam.css file */
+
+.bcs-sidebar .toc-heading {
+    color: var(--deep-red);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 15px 15px 5px 15px;
+    margin-top: 10px;
+    border-bottom: 1px solid var(--border-gray);
+}

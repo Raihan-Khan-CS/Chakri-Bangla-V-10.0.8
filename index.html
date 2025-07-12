@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Raihan Khan, Chakri Bangla">
+    <meta name="description" content="Chakri Bangla (চাকরি বাংলা) is the leading job news portal in Bangladesh, providing the latest job news and circulars.">
+    <link rel="icon" href="images/Chakri-Bangla-LOGO.jpg" type="image/x-icon">
+    <meta property="og:title" content="Chakri Bangla - চাকরি বাংলা | Job News & Circulars">
+    <meta property="og:description" content="Find the latest job news and circulars in Bangladesh.">
+    <meta property="og:image" content="assets/Chakri-Bangla-LOGO.jpg">
+    <meta property="og:url" content="https://www.chakribangla.com">
+    <meta property="og:type" content="website">
+    <title>Chakri Bangla - চাকরি বাংলা | Job News & Circulars in Bangladesh</title>
+    <link rel="icon" href="../images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/Chakri-Bangla-LOGO.jpg" alt="Chakri Bangla Logo" onerror="this.style.display='none'">
+            </a>
+            <nav>
+                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="index.html" class="nav-link active" data-page="home">হোম</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-page="news" onclick="handleNavClick(event, 'category', 'news')">চাকরির খবর</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">চাকরির সার্কুলার <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'category', 'govt')">সরকারি চাকরি</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'category', 'private')">বেসরকারি চাকরি</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'category', 'bank')">ব্যাংক জব</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'category', 'ngo')">এনজিও</a>
+                        </div>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">পরীক্ষার প্রস্তুতি <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'page', 'bcs')">বিসিএস প্রস্তুতি</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'page', 'bank_exam')">ব্যাংক জব প্রস্তুতি</a>
+                            <a href="#" class="dropdown-link" onclick="handleNavClick(event, 'page', 'career-advice')">ক্যারিয়ার পরামর্শ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-page="about" onclick="handleNavClick(event, 'page', 'about')">আমাদের সম্পর্কে</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main id="page-content">
+        <div class="container" style="padding: 50px; text-align: center;"><p>Loading...</p></div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>চাকরি বাংলা সম্পর্কে</h3>
+                    <p>বাংলাদেশে সর্বশেষ চাকরির খবর ও সার্কুলার পাওয়ার জন্য আপনার ওয়ান-স্টপ গন্তব্য। আমরা আপনার জন্য সবচেয়ে নির্ভরযোগ্য চাকরির আপডেট নিয়ে আসি।</p>
+                    <div class="footer-socials">
+                         <a href="https://www.facebook.com/ChakriBanglaBD" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://x.com/abcltech/ChakriBangla" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                         <a href="https://www.linkedin.com/company/104394814" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                         <a href="https://www.instagram.com/ChakriBangla" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                         <a href="https://www.youtube.com/@ChakriBangla" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>চাকরির সার্কুলার</h3>
+                    <ul>
+                        <li><a href="#" onclick="handleNavClick(event, 'category', 'govt')">সরকারি চাকরি</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'category', 'private')">বেসরকারি চাকরি</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'category', 'bank')">ব্যাংক জব</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'category', 'ngo')">এনজিও</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>গুরুত্বপূর্ণ লিঙ্ক</h3>
+                    <ul>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'bcs-preparation')">বিসিএস প্রস্তুতি</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'bank-preparation')">ব্যাংক জব প্রস্তুতি</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'career-advice')">ক্যারিয়ার পরামর্শ</a></li>
+                    </ul>
+                </div>
+                    <div class="footer-section">
+                    <h3>আমাদের সম্পর্কে</h3>
+                    <ul>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'about')">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'contact')">যোগাযোগ</a></li>
+                        <li><a href="#" onclick="handleNavClick(event, 'page', 'privacy')">গোপনীয়তা নীতি</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© ২০২৫ চাকরি বাংলা। সর্বস্বত্ব সংরক্ষিত।</p></div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

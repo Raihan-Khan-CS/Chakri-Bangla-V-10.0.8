@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Raihan Khan, Chakri Bangla">
+    <meta name="description" content="চাকরি বাংলা এবং এর প্রতিষ্ঠাতা সম্পর্কে জানুন। আমরা বাংলাদেশের চাকরিপ্রার্থীদের জন্য নির্ভরযোগ্য তথ্য ও সেবা প্রদান করি।">
+    <title>আমাদের সম্পর্কে | চাকরি বাংলা</title>
+    <link rel="icon" href="images/Chakri-Bangla-LOGO.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="images/Chakri-Bangla-LOGO.jpg" alt="Chakri Bangla Logo" onerror="this.style.display='none'">
+            </a>
+            <nav>
+                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-page="home">হোম</a></li>
+                    <li class="nav-item"><a href="index.html?page=category&arg=news" class="nav-link" data-page="news">চাকরির খবর</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">চাকরির সার্কুলার <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="index.html?page=category&arg=govt" class="dropdown-link">সরকারি চাকরি</a>
+                            <a href="index.html?page=category&arg=private" class="dropdown-link">বেসরকারি চাকরি</a>
+                            <a href="index.html?page=category&arg=bank" class="dropdown-link">ব্যাংক জব</a>
+                            <a href="index.html?page=category&arg=ngo" class="dropdown-link">এনজিও</a>
+                        </div>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" onclick="toggleDropdown(event)">পরীক্ষার প্রস্তুতি <i class="fas fa-chevron-down fa-xs"></i></a>
+                        <div class="dropdown">
+                            <a href="index.html?page=page&arg=bcs" class="dropdown-link">বিসিএস প্রস্তুতি</a>
+                            <a href="index.html?page=page&arg=bank_exam" class="dropdown-link">ব্যাংক জব প্রস্তুতি</a>
+                            <a href="index.html?page=page&arg=career-advice" class="dropdown-link">ক্যারিয়ার পরামর্শ</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="about.html" class="nav-link active" data-page="about">আমাদের সম্পর্কে</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="static-page">
+                <div class="about-section">
+                    <h2>আমাদের সম্পর্কে</h2>
+                    <p>"চাকরি বাংলা" তে আপনাকে স্বাগতম! বাংলাদেশে সর্বশেষ এবং নির্ভরযোগ্য চাকরির খবর ও বিজ্ঞপ্তি পাওয়ার জন্য এটি আপনার বিশ্বস্ত ঠিকানা। আমাদের মূল উদ্দেশ্য হলো, বাংলাদেশের সকল প্রকার সরকারি, বেসরকারি, ব্যাংক এবং এনজিও খাতের চাকরির সর্বশেষ সার্কুলার, পরীক্ষার নোটিশ, ফলাফল এবং সংশ্লিষ্ট সকল সংবাদ সবার আগে নির্ভুলভাবে উপস্থাপন করা। আমরা চাকরিপ্রার্থীদের জন্য একটি সহজ এবং কার্যকর প্ল্যাটফর্ম তৈরি করতে প্রতিশ্রুতিবদ্ধ, যেখানে তারা সকল প্রকার চাকরির তথ্য এক জায়গায় পাবেন।</p>
+                    <p>আমরা বিভিন্ন ধরনের সেবা প্রদান করে থাকি, যার মধ্যে রয়েছে সকল সরকারি, বেসরকারি, ব্যাংক ও এনজিও চাকরির বিজ্ঞপ্তি প্রকাশ করা। এর পাশাপাশি, আমরা চাকরিপ্রার্থীদের স্বপ্ন পূরণে সহায়তা করার জন্য বিসিএস প্রস্তুতি, ব্যাংক জব প্রস্তুতি এবং ক্যারিয়ার গঠনের বিভিন্ন গুরুত্বপূর্ণ বিষয়ে পরামর্শমূলক কনটেন্ট তৈরি করি।</p>
+                    <p>"চাকরি বাংলা" ২০২৪ সালের মার্চ মাসের ২২ তারিখে এর কার্যক্রম শুরু করে। এর প্রতিষ্ঠাতা ও প্রধান সম্পাদক, মো: রায়হান খান, প্রতিষ্ঠালগ্ন থেকেই এই প্ল্যাটফর্মটি পরিচালনা করে আসছেন। তিনি ঢাকার স্বনামধন্য নর্থ সাউথ বিশ্ববিদ্যালয় থেকে কম্পিউটার সায়েন্স এন্ড ইঞ্জিনিয়ারিং বিষয়ে একজন প্রযুক্তি বিশেষজ্ঞ হিসেবে স্নাতক সম্পন্ন করেছেন। তাঁর দীর্ঘদিনের অভিজ্ঞতা রয়েছে বিভিন্ন সরকারি ও বেসরকারি প্রতিষ্ঠানে কাজ করার এবং চাকরির বাজারের চাহিদা ও চাকরিপ্রার্থীদের প্রয়োজন সম্পর্কে তিনি গভীর জ্ঞান রাখেন। তিনি মূলত চাকরিপ্রার্থীরা কীভাবে নিয়োগ পরীক্ষার জন্য নিজেদের প্রস্তুত করবেন, ভাইভার জন্য কী ধরনের প্রস্তুতি নিবেন এবং অন্যান্য প্রাসঙ্গিক বিষয়ে নিজেদের আরও দক্ষ করে তুলবেন, সেইসব বিষয়ে দিকনির্দেশনা প্রদান করে থাকেন।</p>
+                </div>
+
+                <div class="about-section">
+                    <h2>আমাদের সেবা সমূহ</h2>
+                    <div class="service-box-grid">
+                        <a href="index.html?page=category&arg=govt" class="service-link-card">
+                            <i class="fas fa-building-columns"></i>
+                            <h4>সরকারি চাকরি</h4>
+                        </a>
+                        <a href="index.html?page=category&arg=private" class="service-link-card">
+                            <i class="fas fa-briefcase"></i>
+                            <h4>বেসরকারি চাকরি</h4>
+                        </a>
+                        <a href="index.html?page=category&arg=bank" class="service-link-card">
+                            <i class="fas fa-university"></i>
+                            <h4>ব্যাংক জব</h4>
+                        </a>
+                        <a href="index.html?page=category&arg=ngo" class="service-link-card">
+                            <i class="fas fa-hands-helping"></i>
+                            <h4>এনজিও</h4>
+                        </a>
+                        <a href="index.html?page=page&arg=bcs" class="service-link-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>বিসিএস প্রস্তুতি</h4>
+                        </a>
+                        <a href="index.html?page=page&arg=bank_exam" class="service-link-card">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h4>ব্যাংক জব প্রস্তুতি</h4>
+                        </a>
+                        <a href="index.html?page=page&arg=career-advice" class="service-link-card">
+                            <i class="fas fa-comments"></i>
+                            <h4>ক্যারিয়ার পরামর্শ</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-section founder-section">
+                    <h2>প্রতিষ্ঠাতা ও প্রধান সম্পাদক </h2>
+                    <div class="founder-card">
+                        <div class="founder-image">
+                            <img src="images/Raihan-Khan-Chakri-Bangla.jpg" alt="মো: রায়হান খান">
+                        </div>
+                        <div class="founder-details">
+                            <p><strong>মো: রায়হান খান</strong> ২০২৪ সালের মার্চ মাসের ২২ তারিখে চাকরি বাংলা প্রতিষ্ঠা করেন এবং প্রতিষ্ঠালগ্ন থেকেই প্রধান সম্পাদক হিসেবে দায়িত্ব পালন করে আসছেন।</p>
+                            <p>তিনি একজন প্রযুক্তি বিশেষজ্ঞ এবং নর্থ সাউথ বিশ্ববিদ্যালয় থেকে কম্পিউটার সায়েন্স এন্ড ইঞ্জিনিয়ারিং এ স্নাতক সম্পন্ন করেছেন। উনার দীর্ঘদিন যাবত বিভিন্ন সরকারি এবং বেসরকারি প্রতিষ্ঠানে কাজের অভিজ্ঞতা রয়েছে। তিনি মূলত কাজ করে থাকেন কিভাবে চাকরি প্রার্থীরা চাকরির জন্য প্রস্তুতি নিবেন এবং ভাইবার জন্য নিজেকে প্রস্তুত করবেন।</p>
+                            
+                            <div class="founder-contact-merged">
+                                <div class="contact-socials">
+                                    <a href="https://raihankhan.info/" target="_blank" aria-label="Website"><i class="fas fa-globe"></i></a>
+                                    <a href="https://facebook.com/RaihanKhanCS" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.linkedin.com/in/raihankhancs" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://www.youtube.com/@RaihanKhanCSE" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://twitter.com/raihankhancs" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.instagram.com/raihankhancs/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-section">
+                    <h3>আমাদের সম্পর্কে</h3>
+                    <p>বাংলাদেশে সর্বশেষ চাকরির খবর ও সার্কুলার পাওয়ার জন্য আপনার ওয়ান-স্টপ গন্তব্য। আমরা আপনার জন্য সবচেয়ে নির্ভরযোগ্য চাকরির আপডেট নিয়ে আসি।</p>
+                    <div class="footer-socials">
+                         <a href="https://www.facebook.com/ChakriBanglaBD" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://x.com/abcltech/ChakriBangla" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                         <a href="https://www.linkedin.com/company/104394814" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                         <a href="https://www.instagram.com/ChakriBangla" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                         <a href="https://www.youtube.com/@ChakriBangla" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>চাকরির বিজ্ঞপ্তি</h3>
+                    <ul>
+                        <li><a href="index.html?page=category&arg=govt">সরকারি চাকরি</a></li>
+                        <li><a href="index.html?page=category&arg=private">বেসরকারি চাকরি</a></li>
+                        <li><a href="index.html?page=category&arg=bank">ব্যাংক জব</a></li>
+                        <li><a href="index.html?page=category&arg=ngo">এনজিও</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>চাকরির প্রস্তুতি</h3>
+                    <ul>
+                        <li><a href="index.html?page=page&arg=bcs">বিসিএস প্রস্তুতি</a></li>
+                        <li><a href="index.html?page=page&arg=bank_exam">ব্যাংক জব প্রস্তুতি</a></li>
+                        <li><a href="index.html?page=page&arg=career-advice">ক্যারিয়ার পরামর্শ</a></li>
+                    </ul>
+                </div>
+                    <div class="footer-section">
+                    <h3>গুরুত্বপূর্ণ লিঙ্ক</h3>
+                    <ul>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#">যোগাযোগ</a></li>
+                        <li><a href="#">গোপনীয়তা নীতি</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© ২০২৫ চাকরি বাংলা। সর্বস্বত্ব সংরক্ষিত।</p></div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
