@@ -350,7 +350,7 @@ const db = {
     },
 };
 
-// --- TEMPLATING FUNCTIONS (Your existing 'templates' object goes here) ---
+// --- TEMPLATING FUNCTIONS ---
 const templates = {
     itemCard: (item) => {
         const isHomepage = !document.body.hasAttribute('data-post-id');
@@ -373,153 +373,39 @@ const templates = {
         return `<section class="home-section"><div class="section-header"><h2>${category.icon} ${category.bn}</h2><a href="#" class="btn-view-all" onclick="handleNavClick(event, 'category', '${key}')">সব দেখুন</a></div><div class="item-grid">${itemGridHtml}</div></section>`;
     },
     relatedPostItem: (item) => {
-        const pathPrefix = '../';
+        // Correct path for related items which are always one level deep
+        const pathPrefix = './'; // Simpler path logic
         const link = item.file ? `${pathPrefix}${item.file}` : '#';
         const clickHandler = item.file ? `window.location.href='${link}';` : `alert('বিস্তারিত তথ্য শীঘ্রই আসছে।');`;
-        return `<li><a href="${link}" class="related-post-item" onclick="event.preventDefault(); ${clickHandler}"><img src="${item.thumb}" alt="${item.title_bn}" class="related-post-thumb" onerror="this.src='https://placehold.co/100x100/cccccc/ffffff?text=Img'"/>
+        // Correct thumb path
+        const thumbSrc = item.thumb ? `../${item.thumb}` : 'https://placehold.co/100x100/cccccc/ffffff?text=Img';
+        return `<li><a href="${link}" class="related-post-item" onclick="event.preventDefault(); ${clickHandler}"><img src="${thumbSrc}" alt="${item.title_bn}" class="related-post-thumb" />
                         <h4 class="related-post-title">${item.title_bn}</h4></a></li>`;
     }
 };
 
-// --- State management for the current view on the homepage
+// --- State management for the current view ---
 const state = {
     currentPage: 'home',
     currentPageArg: null
 };
 
-// ===================================================================
-// START: NEW DYNAMIC HEADER/FOOTER LOADER
-// ===================================================================
-
-/**
- * Loads the header and footer from index.html into the current page.
- */
-async function loadSharedLayout() {
-    const headerElement = document.querySelector("header");
-    const footerElement = document.querySelector("footer");
-
-    if (!headerElement || !footerElement) {
-        // If placeholders are not found, do nothing.
-        // This check is important for the index.html page itself.
-        return;
-    }
-
-    // 1. Determine the correct relative path to the root directory
-    const path = window.location.pathname;
-    let basePath = './';
-    const pathSegments = path.split('/').filter(segment => segment.length > 0 && !segment.endsWith('.html'));
-    
-    if (pathSegments.length > 1) { // A basic check for subdirectories
-       basePath = '../'.repeat(pathSegments.length -1);
-    }
-    
-    // A more specific check for deeply nested BCS exam pages
-    if (path.includes('/bcs-exam/')) {
-       basePath = path.split('/').length > 4 ? '../../' : '../';
-    }
-
-
-    try {
-        // 2. Fetch the content of index.html from the root
-        const response = await fetch(`${basePath}index.html`);
-        if (!response.ok) throw new Error("Could not load layout from index.html");
-        const text = await response.text();
-
-        // 3. Parse the fetched text into an HTML document
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-
-        const headerNode = doc.querySelector('.header');
-        const footerNode = doc.querySelector('.footer');
-
-        if (headerNode && footerNode) {
-            // 4. Correct all paths within the fetched HTML
-            adjustElementPaths(headerNode, basePath);
-            adjustElementPaths(footerNode, basePath);
-
-            // 5. Inject the corrected HTML into the current page's placeholders
-            headerElement.innerHTML = headerNode.innerHTML;
-            footerElement.innerHTML = footerNode.innerHTML;
-
-            // 6. Re-attach event listeners to the new header elements
-            reinitializeHeaderEventListeners();
-        }
-    } catch (error) {
-        console.error("Error loading shared layout:", error);
-        headerElement.innerHTML = "<p>Error: Could not load header.</p>";
-        footerElement.innerHTML = "<p>Error: Could not load footer.</p>";
-    }
-}
-
-/**
- * Adjusts all href and src attributes in a given HTML node to work from any directory depth.
- * @param {HTMLElement} node - The HTML node (header or footer) to process.
- * @param {string} basePath - The relative path to the root (e.g., './', '../').
- */
-function adjustElementPaths(node, basePath) {
-    // Adjust anchor tags
-    node.querySelectorAll('a').forEach(a => {
-        const href = a.getAttribute('href');
-        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-            // Special handling for homepage links with parameters
-            if (href.includes('?page=')) {
-                const [path, query] = href.split('?');
-                a.href = `${basePath}index.html?${query}`;
-            } else {
-                 a.href = `${basePath}${href}`;
-            }
-        }
-    });
-
-    // Adjust image tags
-    node.querySelectorAll('img').forEach(img => {
-        const src = img.getAttribute('src');
-        if (src && !src.startsWith('http')) {
-            img.src = `${basePath}${src}`;
-        }
-    });
+// --- DYNAMIC LAYOUT LOADER ---
+function loadComponent(url, elementId, basePath) {
+    fetch(url)
+        .then(response => response.ok ? response.text() : Promise.reject('File not found.'))
+        .then(data => {
+            // Adjust paths for links and images before injection
+            const adjustedData = data
+                .replace(/href="(?!http|#|mailto|tel)([^"]*)"/g, `href="${basePath}$1"`)
+                .replace(/src="(?!http)([^"]*)"/g, `src="${basePath}$1"`);
+            document.getElementById(elementId).innerHTML = adjustedData;
+        })
+        .catch(error => console.error(`Error loading ${elementId}:`, error));
 }
 
 
-/**
- * Re-attaches necessary event listeners after the header is dynamically loaded.
- */
-function reinitializeHeaderEventListeners() {
-    const mobileToggle = document.getElementById('mobile-toggle');
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', toggleMobileMenu);
-    }
-    
-    // Re-attach click handlers for navigation and dropdowns
-    // Using event delegation on the header is more efficient
-    const header = document.querySelector('header');
-    if(header) {
-        header.addEventListener('click', function(event){
-            const target = event.target;
-            
-            // Handle dropdown toggles on mobile
-            if(target.matches('.nav-link') && target.getAttribute('onclick')?.includes('toggleDropdown')){
-                toggleDropdown(event);
-            }
-
-            // Handle navigation clicks
-            const navLink = target.closest('a');
-            if(navLink && navLink.getAttribute('onclick')?.includes('handleNavClick')){
-                // Extract arguments from the onclick attribute string
-                const onclickString = navLink.getAttribute('onclick');
-                const args = onclickString.match(/'([^']*)'/g).map(arg => arg.replace(/'/g, ''));
-                handleNavClick(event, args[0], args[1]);
-            }
-        });
-    }
-}
-
-// ===================================================================
-// END: NEW DYNAMIC HEADER/FOOTER LOADER
-// ===================================================================
-
-
-// --- ORIGINAL PAGE RENDERING LOGIC AND EVENT HANDLERS ---
+// --- ORIGINAL PAGE LOGIC ---
 
 function renderHomepage(pageKey, pageArg = null) {
     const contentDiv = document.getElementById('page-content');
@@ -531,160 +417,124 @@ function renderHomepage(pageKey, pageArg = null) {
         const newsSectionHtml = templates.homeSection('news');
         const circularSectionsHtml = circularCategories.map(key => templates.homeSection(key)).join('');
         const prepSectionHtml = `<section class="home-section"><div class="section-header"><h2><i class="fas fa-book-reader"></i> পরীক্ষার প্রস্তুতি</h2></div><div class="prep-grid">
-                             <a href="bcs-exam.html" class="prep-card"><div class="icon">🏛️</div><h3>বিসিএস প্রস্তুতি</h3><p>গাইডলাইন ও টিপস</p></a>
+                             <a href="bcs-exam/bcs-exam.html" class="prep-card"><div class="icon">🏛️</div><h3>বিসিএস প্রস্তুতি</h3><p>গাইডলাইন ও টিপস</p></a>
                              <a href="#" class="prep-card" onclick="handleNavClick(event, 'category', 'bank')"><div class="icon">🏦</div><h3>ব্যাংক জব প্রস্তুতি</h3><p>গাইডলাইন ও টিপস</p></a>
-                             <a href="#" class="prep-card" onclick="handleNavClick(event, 'page', 'career-advice')"><div class="icon">💬</div><h3>ক্যারিয়ার পরামর্শ</h3><p>গাইডলাইন ও টিপস</p></a>
+                             <a href="#" class="prep-card" onclick="handleNavClick(event, 'page', 'career-advice')"><div class="icon">💬</div><h3>ক্যারিয়ার পরামর্শ</h3><p>গাইডলাইন ও টিপস</p></a>
                         </div></section>`;
         contentHtml = `<div class="container">${newsSectionHtml}${circularSectionsHtml}${prepSectionHtml}</div>`;
-
     } else if (pageKey === 'category') {
         const category = db.categories[pageArg];
         const itemsToList = (pageArg === 'news') ? db.items.filter(i => i.type === 'news') : db.items.filter(i => i.type === 'circular' && i.category === pageArg);
         const itemListHtml = itemsToList.length > 0 ? itemsToList.map(item => templates.fullListItem(item)).join('') : `<p style="padding: 20px;">এই বিভাগে কোনো তথ্য পাওয়া যায়নি।</p>`;
         contentHtml = `<div class="container"><div class="home-section"><div class="section-header"><h2>${category.icon} ${category.bn}</h2></div><div class="full-item-list">${itemListHtml}</div></div></div>`;
-    
     } else if (pageKey === 'page' && pageArg === 'career-advice'){
         contentHtml = `<div class="container"><div class="static-page"><h1>ক্যারিয়ার পরামর্শ</h1><p>এই বিভাগটি শীঘ্রই আসছে...</p></div></div>`;
-    
     } else {
         contentHtml = `<div class="container"><div class="static-page"><h1>404 - পেজটি খুঁজে পাওয়া যায়নি</h1></div></div>`;
     }
-    
     contentDiv.innerHTML = contentHtml;
     window.scrollTo(0, 0);
     updateNavActiveState(pageKey, pageArg);
 }
-
 
 function handleNavClick(event, pageKey, pageArg = null) {
     event.preventDefault();
     state.currentPage = pageKey;
     state.currentPageArg = pageArg;
 
-    // Check if we are on the homepage or need to navigate
-    if (document.getElementById('page-content')) {
+    if (document.getElementById('page-content')) { // If on homepage
         renderHomepage(pageKey, pageArg);
-    } else {
-        // Determine the correct base path for navigation
-        const path = window.location.pathname;
-        let basePath = '../'; // Default for one level deep
-        if (path.includes('/bcs-exam/bangla-Bhasha-o-shahityo/') || path.includes('/bcs-exam/english-language-and-literature/')) {
-            basePath = '../../'; // For two levels deep
-        }
-
-        // Navigate to the correct page
-        let targetUrl = `${basePath}index.html`;
-        if (pageKey === 'page' && ['about', 'contact', 'faq', 'privacy-policy', 'terms-and-conditions', 'disclaimer'].includes(pageArg)) {
-             targetUrl = `${basePath}${pageArg}.html`;
-        } else if (pageKey === 'page' && pageArg === 'bcs'){
-             targetUrl = `${basePath}bcs-exam.html`;
-        } else {
-             targetUrl = `${basePath}index.html?page=${pageKey}&arg=${pageArg}`;
-        }
-        window.location.href = targetUrl;
+    } else { // If on a subpage, navigate to the correct homepage view
+        window.location.href = `../index.html?page=${pageKey}&arg=${pageArg}`;
     }
 }
-
 
 function updateNavActiveState(pageKey, pageArg) {
     document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-    let activeLink;
-    if (pageKey === 'home') activeLink = document.querySelector('.nav-link[data-page="home"]');
-    if (pageKey === 'category' && pageArg === 'news') activeLink = document.querySelector('.nav-link[data-page="news"]');
-    if (pageKey === 'page' && pageArg === 'about') activeLink = document.querySelector('.nav-link[data-page="about"]');
-    if (pageKey === 'page' && pageArg === 'contact') activeLink = document.querySelector('.nav-link[data-page="contact"]');
-    
-    // Highlight the "Exam Prep" dropdown if on the BCS main page
-    if (window.location.pathname.endsWith('bcs-exam.html')) {
-        activeLink = document.querySelector('a.nav-link[onclick*="bcs-exam.html"]');
-    }
-
-    if (activeLink) activeLink.classList.add('active');
+    // This function will need to be re-run after the header loads on sub-pages
+    // We will call it from the main DOMContentLoaded event listener
 }
-
 
 function initializePostPage() {
     const body = document.body;
     const postId = parseInt(body.getAttribute('data-post-id'), 10);
+    if (!postId) return;
+
     const postType = body.getAttribute('data-post-type');
     const postCategory = body.getAttribute('data-post-category');
-
-    if (!postId || !postType) return;
-
     const currentItem = db.items.find(item => item.id === postId);
+
+    // Set header image
     if (currentItem) {
         const postImage = document.getElementById('post-header-image');
         if (postImage && currentItem.image) {
-            postImage.src = `../${currentItem.image}`;
+            postImage.src = `../${currentItem.image}`; // Assumes image path is from root
         }
     }
 
+    // Populate related posts
     const relatedPostsContainer = document.getElementById('related-posts-list');
     if (relatedPostsContainer) {
         const relatedItems = db.items.filter(item => {
             if (item.id === postId) return false;
-            if (postType === 'news') return item.type === 'news';
             return item.type === 'circular' && item.category === postCategory;
         }).slice(0, 5);
         relatedPostsContainer.innerHTML = relatedItems.map(item => templates.relatedPostItem(item)).join('');
     }
-
-    // Share buttons logic
-    const pageUrl = encodeURIComponent(window.location.href);
-    const pageTitle = encodeURIComponent(document.title);
-    const facebookBtn = document.getElementById('share-facebook');
-    const twitterBtn = document.getElementById('share-twitter');
-    const linkedinBtn = document.getElementById('share-linkedin');
-
-    if (facebookBtn) facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-    if (twitterBtn) twitterBtn.href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-    if (linkedinBtn) linkedinBtn.href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
 }
 
 
 function toggleMobileMenu() {
-    document.getElementById('navMenu').classList.toggle('active');
+    document.getElementById('navMenu')?.classList.toggle('active');
 }
 
 function toggleDropdown(event) {
     if (window.innerWidth <= 992) {
         event.preventDefault();
-        const parentItem = event.target.parentElement;
-        parentItem.classList.toggle('active');
-        const dropdown = parentItem.querySelector('.dropdown');
+        const parentItem = event.currentTarget.closest('.nav-item');
+        parentItem?.classList.toggle('active');
+        const dropdown = parentItem?.querySelector('.dropdown');
         if (dropdown) {
-            // Simple toggle for mobile view
-             if(window.getComputedStyle(dropdown).display === 'none'){
-                 dropdown.style.display = 'block';
-             } else {
-                 dropdown.style.display = 'none';
-             }
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         }
     }
 }
 
+
 // --- MAIN EXECUTION LOGIC ---
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Check if the current page is index.html
     const isIndexPage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    const footerPlaceholder = document.getElementById('footer-placeholder');
 
-    if (isIndexPage) {
-        // Homepage specific logic
-        const urlParams = new URLSearchParams(window.location.search);
-        const page = urlParams.get('page') || 'home';
-        const arg = urlParams.get('arg');
-        renderHomepage(page, arg);
-         // Re-attach listeners to the header on the homepage
-        reinitializeHeaderEventListeners();
-    } else {
-        // Logic for all other pages
-        loadSharedLayout().then(() => {
-            if (document.body.hasAttribute('data-post-id')) {
-                initializePostPage();
-            }
-             // For pages like about.html, bcs-exam.html etc.
-            updateNavActiveState();
-        });
+    if (!isIndexPage && headerPlaceholder && footerPlaceholder) {
+        // This is a subpage, load components
+        const path = window.location.pathname;
+        const depth = path.split('/').length - 2;
+        const basePath = '../'.repeat(depth);
+        
+        loadComponent(`${basePath}_header.html`, 'header-placeholder', basePath);
+        loadComponent(`${basePath}_footer.html`, 'footer-placeholder', basePath);
     }
+
+    // Initialize page-specific logic after a short delay to allow components to load
+    setTimeout(() => {
+        if (document.getElementById('page-content')) { // Homepage
+            const urlParams = new URLSearchParams(window.location.search);
+            const page = urlParams.get('page') || 'home';
+            const arg = urlParams.get('arg');
+            renderHomepage(page, arg);
+        }
+
+        if (document.body.hasAttribute('data-post-id')) { // Post pages
+            initializePostPage();
+        }
+        
+        // Re-initialize event listeners for the newly loaded header
+        document.getElementById('mobile-toggle')?.addEventListener('click', toggleMobileMenu);
+        document.querySelectorAll('.nav-link[onclick*="toggleDropdown"]')?.forEach(link => {
+            link.addEventListener('click', toggleDropdown);
+        });
+
+    }, 100); // 100ms delay might be needed for the fetch to complete
 });
